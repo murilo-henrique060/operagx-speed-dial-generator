@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <title>Opera GX Speed Dial Generator</title>
+</head>
+<body class="bg-body" data-bs-theme="dark">
+  <div class="banner position-absolute">
+    <div class="banner position-relative z-n1">
+      <div class="banner position-absolute">
+        <div id="banner" class="banner position-relative z-n1">
+          <div id="banner-backgrounds" class="banner position-absolute">
+            <div id="banner-color-background" class="banner" style="background-color: #000000"></div>
+          </div>
+          
+          <div id="banner-icons" class="banner position-absolute">
+            <div id="banner-fa-icon" class="banner d-flex justify-content-center align-items-center">
+              <i class="fa-brands fa-github banner-fs-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner position-absolute bg-body"></div>
+    </div>
+  </div>
+  
+  <nav class="navbar navbar-expand-lg sticky-top bg-gradient shadow" style="background-color: var(--bs-indigo);">
+    <div class="container-fluid">
+      <div class="navbar-brand">Speed Dial Generator</div>
+
+      <nav class="ms-auto">
+        <a id="download" download="banner.png" href="#" class="btn btn-link text-white">
+          <i class="fa-solid fa-download"></i>
+        </a>
+      </nav>
+    </div>
+  </nav>
+
+  <main class="container-lg">
+    <div class="py-3">
+      <div id="display" class="banner position-relative mt-2 mb-4 bg-body-secondary d-flex justify-content-center align-items-center">
+        <div id="loading" class="position-absolute z-1">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+
+        <img src="" class="image-fluid">
+      </div>
+
+      <form>
+        <fieldset class="mb-3">
+          <legend>Icon</legend>
+
+          <div class="mb-3">
+            <label for="icon-mode" class="form-label">Mode</label>
+            <select id="icon-mode" class="form-select" onchange="changeIconMode()">
+              <option selected value="fa">Font Awesome Brands</option>
+              <option value="upload">Upload</option>
+              <option value="url">Url</option>
+            </select>
+          </div>
+
+          <div id="icon-modes" class="mb-3">
+            <fieldset id="icon-fa">
+              <label for="icon-fa-icon" class="form-label">Font Awesome Icon</label>
+              <input type="text" id="icon-fa-icon" class="form-control" value="fa-github" onchange="changeFaIcon()">
+            </fieldset>
+
+            <fieldset id="icon-upload" style="display: none;">
+              <label for="icon-upload-icon" class="form-label">Upload Icon</label>
+              <input type="file" id="icon-upload-icon" class="form-control">
+            </fieldset>
+
+            <fieldset id="icon-url" style="display: none;">
+              <label for="icon-url-icon" class="form-label">Url Icon</label>
+              <input type="url" id="icon-url-icon" class="form-control">
+            </fieldset>
+          </div>
+        </fieldset>
+        
+        <fieldset class="mb-3">
+          <legend>Background</legend>
+
+          <div class="mb-3">
+            <label for="background-mode" class="form-label">Mode</label>
+            <select name="background-mode" id="background-mode" class="form-select" onchange="changeBackgroundMode()">
+              <option selected value="color">Color</option> 
+              <option value="gradient">Gradient</option>
+              <option value="upload">Upload</option>
+              <option value="url">Url</option>
+            </select>
+          </div>
+
+          <div id="background-modes" class="mb-3">
+            <fieldset id="background-color">
+              <label for="background-color-background" class="form-label">Background Color</label>
+
+              <div class="hstack gap-3">
+                <input type="text" id="background-color-input" class="form-control" value="#000000" onchange="changeBackgroundColor(this.value)">
+                <input type="color" id="background-color-color-input" class="form-control form-control-color" onchange="changeBackgroundColor(this.value)">
+              </div>
+            </fieldset>
+
+            <fieldset id="background-gradient" style="display: none;">
+              <legend>Background Gradient</legend>
+
+              <label for="background-gradient-start" class="form-label">Start Color</label>
+              <input type="color" id="background-gradient-start" class="form-control form-control-color">
+              
+              <label for="background-gradient-end" class="form-label">End Color</label>
+              <input type="color" id="background-gradient-end" class="form-control form-control-color">
+            </fieldset>
+
+            <fieldset id="background-upload" style="display: none;">
+              <label for="background-upload-background" class="form-label">Upload Background</label>
+              <input type="file" id="background-upload-background" class="form-control">
+            </fieldset>
+
+            <fieldset id="background-url" style="display: none;">
+              <label for="background-url-background" class="form-label">Url Background</label>
+              <input type="url" id="background-url-background" class="form-control">
+            </fieldset>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </main>
+
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="jquery/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/5825873da0.js" crossorigin="anonymous"></script>
+  <script src="html-to-image/html-to-image.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
